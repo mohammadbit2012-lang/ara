@@ -153,33 +153,25 @@ class AppButton extends StatelessWidget {
   }
 }
 
-// ================= مونوگرام + وردمارک =================
+// ================= نشان برند (تصویر دوزبانه) =================
 class BrandMark extends StatelessWidget {
-  const BrandMark({super.key, this.monoSize = 96});
+  const BrandMark({super.key, this.monoSize = 120});
   final double monoSize;
 
   @override
   Widget build(BuildContext context) {
     final isFa = Localizations.localeOf(context).languageCode == 'fa';
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Column(mainAxisSize: MainAxisSize.min, children: [
-      ShaderMask(
-        shaderCallback: (rect) => const LinearGradient(
-          begin: Alignment.topLeft, end: Alignment.bottomRight,
-          colors: [AppColors.goldLight, AppColors.gold, AppColors.goldDeep],
-        ).createShader(rect),
-        child: Text('آ', style: TextStyle(fontSize: monoSize,
-            fontWeight: FontWeight.w800, color: Colors.white, height: 1.15)),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(AppRadius.card),
+      child: SizedBox(
+        width: monoSize * 2.4,
+        height: monoSize * 1.5,
+        child: Image.asset(
+          isFa ? 'logo_fa.png' : 'logo_en.png',
+          fit: BoxFit.contain,
+        ),
       ),
-      const SizedBox(height: AppSpace.sm),
-      isFa
-          ? Text('آرا', style: TextStyle(fontSize: monoSize * 0.3,
-              fontWeight: FontWeight.w800, letterSpacing: -0.5,
-              color: isDark ? AppColors.cream : AppColors.ink))
-          : Text('ARA', style: GoogleFonts.fraunces(fontSize: monoSize * 0.3,
-              letterSpacing: 8, fontWeight: FontWeight.w600,
-              color: isDark ? AppColors.champagne : AppColors.gold)),
-    ]);
+    );
   }
 }
 
@@ -291,7 +283,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final isDark = Theme.of(context).brightness == Brightness.dark;
-       final pages = [
+    final pages = [
       ('ob1.png', l10n.onboarding1Title, l10n.onboarding1Body),
       ('ob2.png', l10n.onboarding2Title, l10n.onboarding2Body),
       ('ob3.png', l10n.onboarding3Title, l10n.onboarding3Body),
@@ -437,6 +429,18 @@ class AraApp extends StatelessWidget {
           theme: AppTheme.light(model.locale),
           darkTheme: AppTheme.dark(model.locale),
           themeMode: model.themeMode,
+          builder: (context, child) {
+            final isDark = Theme.of(context).brightness == Brightness.dark;
+            return Container(
+              color: isDark ? AppColors.espresso : AppColors.ivory,
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 480),
+                  child: child,
+                ),
+              ),
+            );
+          },
           home: const SplashScreen(),
         );
       },
