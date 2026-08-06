@@ -291,10 +291,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final pages = [
-      (Icons.auto_awesome_outlined, l10n.onboarding1Title, l10n.onboarding1Body),
-      (Icons.checkroom_outlined, l10n.onboarding2Title, l10n.onboarding2Body),
-      (Icons.wb_sunny_outlined, l10n.onboarding3Title, l10n.onboarding3Body),
+       final pages = [
+      ('ob1.png', l10n.onboarding1Title, l10n.onboarding1Body),
+      ('ob2.png', l10n.onboarding2Title, l10n.onboarding2Body),
+      ('ob3.png', l10n.onboarding3Title, l10n.onboarding3Body),
     ];
     final isLast = _page == pages.length - 1;
 
@@ -308,7 +308,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: PageView(
                 controller: _controller,
                 onPageChanged: (v) => setState(() => _page = v),
-                children: [for (final p in pages) _Page(icon: p.$1, title: p.$2, body: p.$3)],
+                children: [for (final p in pages) _Page(image: p.$1, title: p.$2, body: p.$3)],
               ),
             ),
             const SizedBox(height: AppSpace.lg),
@@ -347,13 +347,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 }
 
 class _Page extends StatelessWidget {
-  const _Page({required this.icon, required this.title, required this.body});
-  final IconData icon; final String title; final String body;
+  const _Page({required this.image, required this.title, required this.body});
+  final String image; final String title; final String body;
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Column(children: [
       const SizedBox(height: AppSpace.xl),
       Text(title, textAlign: TextAlign.center,
@@ -364,19 +364,9 @@ class _Page extends StatelessWidget {
               color: isDark ? AppColors.subtleDark : AppColors.subtleLight)),
       const SizedBox(height: AppSpace.xxl),
       Expanded(
-        child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter, end: Alignment.bottomCenter,
-              colors: isDark
-                  ? [AppColors.charcoal, AppColors.espresso]
-                  : [AppColors.sand.withOpacity(.55), AppColors.ivory]),
-            borderRadius: BorderRadius.circular(AppRadius.card),
-            border: Border.all(color: isDark ? AppColors.charcoal : AppColors.sand),
-          ),
-          child: Center(child: Icon(icon, size: 110,
-              color: isDark ? AppColors.champagne : AppColors.camel)),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(AppRadius.card),
+          child: Image.asset(image, fit: BoxFit.cover, width: double.infinity),
         ),
       ),
     ]);
