@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'core/l10n/app_localizations.dart';
 
-// ================= توکن‌های طراحی — کانسپت «آرام» =================
+// Design tokens — "Aram" (Quiet Luxury)
 class AppColors {
   AppColors._();
   static const Color ivory = Color(0xFFF5EFE6);
@@ -39,7 +39,7 @@ class AppSpace {
   static const double xxl = 32;
 }
 
-// ================= تم روشن / تیره =================
+// Light / Dark themes
 class AppTheme {
   AppTheme._();
   static ThemeData light(Locale locale) => _build(locale, true);
@@ -76,7 +76,7 @@ class AppTheme {
   }
 }
 
-// ================= مدل سراسری (زبان + تم) =================
+// Global model (locale + theme)
 class AppModel extends ChangeNotifier {
   AppModel._();
   static final AppModel instance = AppModel._();
@@ -98,7 +98,7 @@ class AppModel extends ChangeNotifier {
   }
 }
 
-// ================= دکمهٔ برند =================
+// Brand button
 enum AppButtonVariant { primary, secondary, outline }
 
 class AppButton extends StatelessWidget {
@@ -153,7 +153,7 @@ class AppButton extends StatelessWidget {
   }
 }
 
-// ================= نشان برند (تصویر دوزبانه) =================
+// Bilingual brand logo (image assets)
 class BrandMark extends StatelessWidget {
   const BrandMark({super.key, this.monoSize = 120});
   final double monoSize;
@@ -175,7 +175,7 @@ class BrandMark extends StatelessWidget {
   }
 }
 
-// ================= سوییچ زبان/تم =================
+// Language / theme switcher
 class TopControls extends StatelessWidget {
   const TopControls({super.key});
 
@@ -220,7 +220,7 @@ class TopControls extends StatelessWidget {
   }
 }
 
-// ================= اسپلش =================
+// Splash
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
   @override
@@ -265,7 +265,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 
-// ================= آن‌بوردینگ =================
+// Onboarding
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
   @override
@@ -365,7 +365,7 @@ class _Page extends StatelessWidget {
   }
 }
 
-// ================= ورود =================
+// Login
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -408,7 +408,7 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-// ================= ریشهٔ اپ =================
+// App root — with 480px mobile frame on desktop
 void main() => runApp(const AraApp());
 
 class AraApp extends StatelessWidget {
