@@ -23,7 +23,7 @@ jobs:
         run: |
           flutter pub get
           flutter gen-l10n
-          flutter build web --release --no-web-resources-cdn --base-href /${{ github.event.repository.name }}/
+          flutter build web --release --no-web-resources-cdn --pwa-strategy=none --base-href /${{ github.event.repository.name }}/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
