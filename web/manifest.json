@@ -1,0 +1,12 @@
+{
+  "name": "ara",
+  "short_name": "ara",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F5EFE6",
+  "theme_color": "#B08968",
+  "description": "ARA — Your Personal Style Companion",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": []
+}
