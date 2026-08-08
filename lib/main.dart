@@ -1,3 +1,11 @@
+// Force disable Service Worker for cache-busting
+void main() {
+  if (kIsWeb) {
+    window.location.href = window.location.href + '?v=' + DateTime.now().millisecondsSinceEpoch.toString();
+  } else {
+    runApp(const AraApp());
+  }
+}
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'core/l10n/app_localizations.dart';
