@@ -167,7 +167,7 @@ class BrandMark extends StatelessWidget {
         width: monoSize * 2.4,
         height: monoSize * 1.5,
         child: Image.asset(
-          isFa ? 'assets/logo_fa.png' : 'assets/logo_en.png', // تغییر شده
+          isFa ? 'assets/logo_fa.png' : 'assets/logo_en.png', // ✅ تغییر شده
           fit: BoxFit.contain,
         ),
       ),
@@ -284,9 +284,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final l10n = AppLocalizations.of(context)!;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final pages = [
-      ('assets/ob1.png', l10n.onboarding1Title, l10n.onboarding1Body), // تغییر شده
-      ('assets/ob2.png', l10n.onboarding2Title, l10n.onboarding2Body), // تغییر شده
-      ('assets/ob3.png', l10n.onboarding3Title, l10n.onboarding3Body), // تغییر شده
+      ('assets/ob1.png', l10n.onboarding1Title, l10n.onboarding1Body), // ✅ تغییر شده
+      ('assets/ob2.png', l10n.onboarding2Title, l10n.onboarding2Body), // ✅ تغییر شده
+      ('assets/ob3.png', l10n.onboarding3Title, l10n.onboarding3Body), // ✅ تغییر شده
     ];
     final isLast = _page == pages.length - 1;
 
@@ -358,7 +358,7 @@ class _Page extends StatelessWidget {
       Expanded(
         child: ClipRRect(
           borderRadius: BorderRadius.circular(AppRadius.card),
-          child: Image.asset(image, fit: BoxFit.cover, width: double.infinity), // تغییر شده
+          child: Image.asset(image, fit: BoxFit.cover, width: double.infinity), // ✅ تغییر شده
         ),
       ),
     ]);
