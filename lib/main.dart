@@ -1,9 +1,10 @@
-import 'dart:js_util' as js_util;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'core/l10n/app_localizations.dart';
-
+void main() {
+  runApp(const AraApp());
+}
 // Design tokens — "Aram" (Quiet Luxury)
 class AppColors {
   AppColors._();
