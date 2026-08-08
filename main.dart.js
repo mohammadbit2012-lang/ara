@@ -7394,6 +7394,11 @@ hl:function hl(){},
 MV:function MV(){},
 AO:function AO(){},
 AP:function AP(){},
+akM(a,b){var s,r=a.gbH(),q=b?B.a7:B.V,p=b?B.c2:B.bj,o=A.aiN(q,b?B.FN:B.FL,p,!0)
+q=o.ok
+s=r==="fa"?A.awS(q):A.awR(q)
+r=b?B.c3:B.dA
+return o.yT(s.a1M(r,b?B.c3:B.dA))},
 aDr(){var s,r,q,p,o,n,m,l,k,j,i,h=null
 if($.ac==null){s=t.GA
 r=A.d([],s)
@@ -7425,11 +7430,6 @@ s.CW$!==$&&A.aE()
 s.CW$=i
 j=i}s.OD(new A.pq(p,B.E2,o,j,h))
 s.Ct()},
-akM(a,b){var s,r=a.gbH(),q=b?B.a7:B.V,p=b?B.c2:B.bj,o=A.aiN(q,b?B.FN:B.FL,p,!0)
-q=o.ok
-s=r==="fa"?A.awS(q):A.awR(q)
-r=b?B.c3:B.dA
-return o.yT(s.a1M(r,b?B.c3:B.dA))},
 qZ:function qZ(a,b,c){var _=this
 _.a=a
 _.b=b
@@ -36909,7 +36909,7 @@ o.push(A.mH(m.c,B.a0J,l))
 return A.aiB(new A.Eb(m.d,l,l,l,q,l,l,!1,l,!0,l,A.air(o,B.jL),l),52,1/0)}}
 A.rc.prototype={
 R(a){var s=a.aq(t.Gk).r.f.gbH(),r=A.ny(24),q=this.c
-return A.ahe(r,A.aiB(A.am1(s==="fa"?"logo_fa.png":"logo_en.png",B.Eg,null),q*1.5,q*2.4))}}
+return A.ahe(r,A.aiB(A.am1(s==="fa"?"assets/logo_fa.png":"assets/logo_en.png",B.Eg,null),q*1.5,q*2.4))}}
 A.Kp.prototype={
 R(a){var s,r=null,q=$.agF(),p=A.aq(a).ax.a===B.V,o=q.a.gbH()==="fa",n=p?B.dE:B.bj,m=p?B.bj:B.c2,l=p?B.eT:B.eZ,k=new A.a8i(n,l,m,p?B.dA:B.c3),j=k.$3("\u0641\u0627",o,new A.a8j(q))
 k=k.$3("EN",!o,new A.a8k(q))
@@ -36954,7 +36954,7 @@ this.aI()},
 R(a){var s,r,q,p,o,n,m,l,k,j,i,h,g,f=this,e=null,d=A.a_b(a,B.kF,t.wr)
 d.toString
 s=A.aq(a).ax.a===B.V
-r=[new A.q2("ob1.png",d.gMD(),d.gMC()),new A.q2("ob2.png",d.gMF(),d.gME()),new A.q2("ob3.png",d.gMH(),d.gMG())]
+r=[new A.q2("assets/ob1.png",d.gMD(),d.gMC()),new A.q2("assets/ob2.png",d.gMF(),d.gME()),new A.q2("assets/ob3.png",d.gMH(),d.gMG())]
 q=f.e===2
 p=t.F
 o=A.d([],p)
